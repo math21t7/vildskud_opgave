@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kontakt</title>
   </head>
-  <body class="grid place-items-center p-8">
-    <h1 class="text-xl font-bold text-emerald-700">Tailwind Template E2022</h1>
-    <p class="text-emerald-500">
-      Powered by <a href="https://vitejs.dev/guide">Vite</a>
-    </p>
-    <img src="img/vite.svg" alt="Vite Logo" />
+
+    
 
     <script type="module" src="./main.js"></script>
 <body>
@@ -19,7 +15,7 @@
   <div class="@media (min-width: 640px) { ... }">
 
     <div class="">
-        H2
+        <h2>Kontakt</h2>
     </div>
 
     <div class="">
@@ -62,15 +58,21 @@
     </div>
 
 
-       <div class="kontaktboks">
-          <input type="text" class="field" placeholder="Dit navn (skal udfyldes)">
-          <input type="text" class="field" placeholder="Din e-mail (skal udfyldes)">
-          <input type="text" class="field" placeholder="Emne">
-          <textarea class="field" placeholder="Besked">
-
-
-       </div>
-        
+    <div class="container mx-auto my-20 w-1 1-1/3 border border purple-500 bg-white">
+      <div class="p-5 space-y-5 shadow-x1">
+        <form>
+          <div class ="grid grid-cols-2-gap-5">
+                   <input type="text" class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500" placeholder="Dit navn (skal udfyldes)"/>
+  
+                  <input type="text" class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500" placeholder="Din e-mail (skal udfyldes)"/>
+  
+                  <input type="text" class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500" placeholder="Emne"/>
+  
+                  <textarea cols="10" rows ="5" class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500" placeholder="Beskrivelse" ></textarea>
+  
+          </div>
+      </div>
+    </div>
 
 
 
