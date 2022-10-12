@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body class="grid place-items-center">
+    <h2 class="text-center text-5xl">Partout-billet</h2>
+    <main x-data="{ step: 'step1', antal: '1', quantity: '6', dato_partout_yoku : 'valg', pladser_partout_yoku : '0', dato_partout_levende : 'valg', pladser_partout_levende: '0', dato_partout_vild: 'valg', pladser_partout_vild:'0', dato_partout_birth:'valg', pladser_partout_birth:'0', dato_partout_mand: 'valg', pladser_partout_mand:'0', dato_partout_frygten:'valg', pladser_partout_frygten:'0'}">
+        <header class="border-b border-green-200 pt-4 pb-8">
+          <ul class="">
+            <li class="inline pr-2" :class="{'border-green-200 border-b': step === 'step1' }">1: Antal billetter</li>
+            <li class="inline pr-2" :class="{'border-green-200 border-b': step === 'step2' }" >2: Pladsreservation</li>
+            <li class="inline pr-2" :class="{'border-green-200 border-b': step === 'step3' }">3: Bekræft af køb</li>
+          </ul>
+        </header>
+        <section class="border-b border-green-200 py-8">
+          <!-- step 1 -->
+        <div id="step1" x-show="step === 'step1'">
+          <p class="mb-4">Vælg antallet af billetter du ønsker at købe:</p>
+          <label for="antal">Antal billetter:</label>
+          <select name="antal" id="antal" x-model="antal" form="partoutform">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select> 
+        </div>
+           <!-- step 2-->
+           <div id="step2" x-show="step === 'step2'" class="grid">
+            <p  class="mb-4">Pladsreservation (partout)</p>
+              <label for="dato_partout_yoku" class="mb-2">GO GO YO-YOKU - Xenon-Teaterhuset</label>
+              <select name="dato_partout_yoku" id="dato_partout_yoku" x-model="dato_partout_yoku" form="partoutform" class="mb-2">
+                <option value="valg">Vælg tidspunkt</option>
+                <option value="4aug1645">Torsdag d. 4. Aug. 16:45</option>
+                <option value="4aug2000">Torsdag d. 4. Aug. 20:00</option>
+              </select> 
+              <label for="pladser_partout_yoku" class="mb-2">Antal pladser</label>
+              <select name="pladser_partout_yoku" id="pladser_partout_yoku" x-model="pladser_partout_yoku" form="partoutform" class="mb-12">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> 
+              <label for="dato_partout_levende" class="mb-2">DET LEVENDE RUM - ZeBU</label>
+              <select name="dato_partout_levende" id="dato_partout_levende" x-model="dato_partout_levende" form="ticketform" class="mb-2">
+                <option value="valg">Vælg tidspunkt</option>
+                <option value="4aug1830">Torsdag d. 4. Aug. 18:30</option>
+                <option value="5aug1800">Fredag d. 5. Aug. 18:00</option>
+                <option value="6aug1245">Lørdag d. 6. Aug. 12:45</option>
+              </select> 
+              <label for="pladser_partout_levende" class="mb-2">Antal pladser</label>
+              <select name="pladser_partout_levende" id="pladser_partout_levende" x-model="pladser_partout_levende" form="ticketform" class="mb-12">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> 
+              <label for="dato_partout_vild" class="mb-2">VILD MED MIG - VOX-Teaterhuset</label>
+              <select name="dato_partout_vild" id="dato_partout_vild" x-model="dato_partout_vild" form="ticketform" class="mb-2">
+                <option value="valg">Vælg tidspunkt</option>
+                <option value="2aug1830">Tirsdag d. 2. Aug. 18:30</option>
+                <option value="3aug1615">Onsdag d. 3. Aug. 16:15</option>
+                <option value="3aug2000">Onsdag d. 3. Aug. 20:00</option>
+              </select> 
+              <label for="pladser_partout_vild" class="mb-2">Antal pladser</label>
+              <select name="pladser_partout_vild" id="pladser_partout_vild" x-model="pladser_partout_vild" form="ticketform" class="mb-12">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> 
+              <label for="dato_partout_birth" class="mb-2">RE-BIRTH - Downunder</label>
+              <select name="dato_partout_birth" id="dato_partout_birth" x-model="dato_partout_birth" form="ticketform" class="mb-2">
+                <option value="valg">Vælg tidspunkt</option>
+                <option value="5aug1530">Fredag d. 5. Aug. 15:00</option>
+                <option value="5aug1800">Fredag d. 5. Aug. 18:00</option>
+                <option value="5aug2015">Fredag d. 5. Aug. 20:15</option>
+              </select> 
+              <label for="pladser_partout_birth" class="mb-2">Antal pladser</label>
+              <select name="pladser_partout_birth" id="pladser_partout_birth" x-model="pladser_partout_birth" form="ticketform" class="mb-2">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> 
+              <label class="mt-12 mb-2" for="dato_partout_mand">Mand Ligger Som Mand Har Redt - VOX-Teaterhuset</label>
+              <select name="dato_partout_mand" id="dato_partout_mand" x-model="dato_partout_mand" form="ticketform" class="mb-2">
+                <option value="valg">Vælg tidspunkt</option>
+                <option value="5aug1915">Fredag d. 5. Aug. 19:15</option>
+                <option value="6aug1300">Lørdag d. 6. Aug. 13:00</option>
+                <option value="6aug1730">Lørdag d. 6. Aug. 17:30</option>
+              </select> 
+              <label for="pladser_partout_mand" class="mb-2">Antal pladser</label>
+              <select name="pladser_partout_mand" id="pladser_partout_mand" x-model="pladser_partout_mand" form="ticketform" class="mb-2">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> 
+              <label class="mt-12 mb-2" for="dato_partout_frygten">Frygten for ikke at leve - Xenon-Teaterhuset</label>
+              <select name="dato_partout_frygten" id="dato_partout_frygten" x-model="dato_partout_frygten" form="ticketform" class="mb-2">
+                <option value="valg">Vælg tidspunkt</option>
+                <option value="6aug1230">Lørdag d. 6. Aug. 12:30</option>
+                <option value="6aug1445">Lørdag d. 6. Aug. 14:45</option>
+              </select> 
+              <label for="pladser_partout_frygten" class="mb-2">Antal pladser</label>
+              <select name="pladser_partout_frygten" id="pladser_partout_frygten" x-model="pladser_partout_frygten" form="ticketform">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> 
+              </div>
+        <!-- step 3-->
+        <div id="step3" x-show="step === 'step3'" class="prose">
+          <h3 class="text-center text-4xl">Oversigt</h3>
+          <h4>Partout-billet</h4>
+      
+          <p><span x-text="`${antal} billetter`"></span></p> 
+        
+      
+          <p>
+          <span x-show="dato_partout_yoku === '4aug1645'">GO GO YO-YOKU - Xenon-Teaterhuset <br> Torsdag d. 4. Aug. 16:45<br></span>
+          <span x-show="dato_partout_yoku === '4aug2000'">GO GO YO-YOKU - Xenon-Teaterhuset <br> Torsdag d. 4. Aug. 20:00<br></span> 
+          <span x-show="pladser_partout_yoku === '1'">1 plads</span> 
+          <span x-show="pladser_partout_yoku === '2'">2 pladser</span> 
+          <span x-show="pladser_partout_yoku === '3'">3 pladser</span> 
+          <span x-show="pladser_partout_yoku === '4'">4 pladser</span> 
+          <span x-show="pladser_partout_yoku === '5'">5 pladser</span> 
+          </p>
+
+          <p>
+            <span x-show="dato_partout_levede === '4aug1830'">DET LEVENDE RUM - ZeBU <br> Torsdag d. 4. Aug. 18:30<br></span>
+            <span x-show="dato_partout_levende === '5aug1800'">DET LEVENDE RUM - ZeBU <br> Fredag d. 5. Aug. 18:00<br></span> 
+            <span x-show="dato_partout_levende === '6aug1245'">DET LEVENDE RUM - ZeBU <br> Lørdag d. 6. Aug. 12:45<br></span>
+            <span x-show="pladser_partout_levende === '1'">1 plads</span> 
+          <span x-show="pladser_partout_levende === '2'">2 pladser</span> 
+          <span x-show="pladser_partout_levende === '3'">3 pladser</span> 
+          <span x-show="pladser_partout_levende === '4'">4 pladser</span> 
+          <span x-show="pladser_partout_levende === '5'">5 pladser</span>  
+            </p>
+            <p>
+                <span x-show="dato_partout_vild === '2aug1830'">VILD MED MIG - VOX-Teaterhuset <br> Tirsdag d. 2. Aug. 18:30<br></span>
+                <span x-show="dato_partout_vild === '3aug1615'">VILD MED MIG - VOX-Teaterhuset <br> Onsdag d. 3. Aug. 16:15<br></span> 
+                <span x-show="dato_partout_vild === '3aug2000'">VILD MED MIG - VOX-Teaterhuset <br> Onsdag d. 3. Aug. 20:00<br></span>
+                <span x-show="pladser_partout_vild === '1'">1 plads</span> 
+              <span x-show="pladser_partout_vild === '2'">2 pladser</span> 
+              <span x-show="pladser_partout_vild === '3'">3 pladser</span> 
+              <span x-show="pladser_partout_vild === '4'">4 pladser</span> 
+              <span x-show="pladser_partout_vild === '5'">5 pladser</span>  
+                </p>
+
+                <p>
+                    <span x-show="dato_partout_birth === '5aug1530'">RE-BIRTH - Downunder <br> Fredag d. 5. Aug. 15:00<br></span>
+                    <span x-show="dato_partout_birth === '5aug1800'">RE-BIRTH - Downunder <br> Fredag d. 5. Aug. 18:00<br></span> 
+                    <span x-show="dato_partout_birth === '5aug2015'">RE-BIRTH - Downunder <br> Fredag d. 5. Aug. 20:15<br></span>
+                    <span x-show="pladser_partout_birth === '1'">1 plads</span> 
+                  <span x-show="pladser_partout_birth === '2'">2 pladser</span> 
+                  <span x-show="pladser_partout_birth === '3'">3 pladser</span> 
+                  <span x-show="pladser_partout_birth === '4'">4 pladser</span> 
+                  <span x-show="pladser_partout_birth === '5'">5 pladser</span>  
+                    </p>
+                    <p>
+                        <span x-show="dato_partout_mand === '5aug1915'">Mand Ligger Som Mand Har Redt - VOX-Teaterhuset <br> Fredag d. 5. Aug. 19:15<br></span>
+                        <span x-show="dato_partout_mand === '6aug1300'">Mand Ligger Som Mand Har Redt - VOX-Teaterhuset <br> Lørdag d. 6. Aug. 13:00<br></span> 
+                        <span x-show="dato_partout_mand === '6aug1730'">Mand Ligger Som Mand Har Redt - VOX-Teaterhuset <br> Lørdag d. 6. Aug. 17:30<br></span>
+                        <span x-show="pladser_partout_mand === '1'">1 plads</span> 
+                      <span x-show="pladser_partout_mand === '2'">2 pladser</span> 
+                      <span x-show="pladser_partout_mand === '3'">3 pladser</span> 
+                      <span x-show="pladser_partout_mand === '4'">4 pladser</span> 
+                      <span x-show="pladser_partout_mand === '5'">5 pladser</span>  
+                        </p>
+
+                        <p>
+                            <span x-show="dato_partout_frygten === '6aug1230'">Frygten for ikke at leve - Xenon-Teaterhuset <br> Lørdag d. 6. Aug. 12:30<br></span>
+                            <span x-show="dato_partout_frygten === '6aug1445'">Frygten for ikke at leve - Xenon-Teaterhuset <br> Lørdag d. 6. Aug. 14:45<br></span> 
+                            <span x-show="pladser_partout_frygten === '1'">1 plads</span> 
+                          <span x-show="pladser_partout_frygten === '2'">2 pladser</span> 
+                          <span x-show="pladser_partout_frygten === '3'">3 pladser</span> 
+                          <span x-show="pladser_partout_frygten === '4'">4 pladser</span> 
+                          <span x-show="pladser_partout_frygten === '5'">5 pladser</span>  
+                            </p>
+
+                    
+
+
+          <p><span>Pris: </span><span class="font-bold" x-text="`${antal * 295} DKK `"></span><span></span></p>
+        </div> 
+        </section>
+        <footer class="py-8 flex justify-between">
+            <div class="">
+              <button x-show="step === 'step1'" class="border-2 border-green-200 p-2"><a href="billetter.html">Tilbage</a></button>
+              <button id="knap2" class="border-2 border-green-200 p-2" x-on:click="step = 'step1'" x-show="step === 'step2'">&LeftArrow; Antal</button>
+              <button id="knap3" class="border-2 border-green-200 p-2" x-on:click="step = 'step2'" x-show="step === 'step3'">&LeftArrow; Pladsreservation</button>
+            </div>
+            <div class="">
+              <button id="knap2" class="border-2 border-green-200 p-2" x-on:click="step = 'step2'" x-show="step === 'step1'">Pladsreservation &RightArrow;</button>
+              <button id="knap3" class="border-2 border-green-200 p-2" x-on:click="step = 'step3'" x-show="step === 'step2'">Oversigt &RightArrow;</button>
+              <button id="knap3" class="border-2 border-green-200 p-2 bg-green-200" x-on:click="step = 'step3'" x-show="step === 'step3'">Bekræft Køb</button>
+            </div>
+          </footer>
+      
+      </main>
+      
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

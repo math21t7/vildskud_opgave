@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <h2 class="text-center text-5xl">Endags-billet</h2>
+    <main x-data="{ step: 'step1', winetype: 'both', quantity: '6', howoften : 'weekly', amount : '4'}">
+        <header class="border-b border-slate-500 pt-4 pb-8">
+          <ul class="">
+            <li class="inline pr-2" :class="{'border-black border-b': step === 'step1' }">1: Antal billetter</li>
+            <li class="inline pr-2" :class="{'border-black border-b': step === 'step2' }" >2: Valg af dage</li>
+            <li class="inline pr-2" :class="{'border-black border-b': step === 'step3' }">3: Delivery frequency</li>
+            <li class="inline pr-2" :class="{'border-black border-b': step === 'step4' }">4: Confirmation</li>
+          </ul>
+        </header>
+        <section class="border-b border-slate-500 py-8">
+          <!-- step 1 -->
+        <div id="step1" x-show="step === 'step1'">
+          <p  class="mb-4">So: You love wine, and want wine delivered to your doorstep on subscription!</p>
+          <p class="mb-4">What type of wine?</p>
+          <form id="winesubscriptionform" class="grid">  
+            <div class="flex">
+              <input type="radio" id="red" name="winetype" value="red" x-model="winetype">
+              <label for="red">Red</label> <img src="j-mckinney-zIo9Fbh8qJc-unsplash.jpg" alt="" class="w-24"></div>                    
+            <div>
+              <input type="radio" id="white" name="winetype" value="white" x-model="winetype">
+              <label for="white">White</label>
+            </div>
+            <div>
+              <input type="radio" id="rosé" name="winetype" value="rosé" x-model="winetype">
+              <label for="white">Rosé</label>
+            </div>
+            <div>
+              <input type="radio" id="both" name="winetype" value="three" x-model="winetype">
+              <label for="both">All three!</label> 
+            </div>
+          </form>
+        </div>
+           <!-- step 2-->
+           <div id="step2" x-show="step === 'step2'">
+            <p>How many bottles per delivery?</p>                    
+            <label for="quantity">Choose how many bottles per delivery:</label>
+            <select name="quantity" id="quantity" x-model="quantity" form="winesubscriptionform">
+              <option value="6">6</option>
+              <option value="12">12</option>
+              <option value="18">18</option>
+              <option value="24">24</option>
+              <option value="30">30</option>
+            </select> 
+          </div>
+            <!-- step 3 -->
+        <div id="step3" x-show="step === 'step3'">
+          <p>How often do you want the wine delivered?</p>                    
+          <label for="howoften">Delivery frequency:</label>
+          <select name="howoften" id="howoften" x-model="howoften" form="winesubscriptionform">
+            <option value="weekly">Every week!</option>
+            <option value="fortnight">Every second week</option>
+            <option value="month">Once a month</option>
+            <option value="threemonths">Every third month </option>
+          </select> 
+        </div>
+        <!-- step 4-->
+        <div id="step4" x-show="step === 'step4'" class="prose">
+          <h3 >Your subscription:</h3> 
+      
+          <p x-show="winetype === 'red'">Red wine only</p> 
+          <p x-show="winetype === 'white'">White wine only</p>   
+          <p x-show="winetype === 'rosé'">Rosé wine only</p> 
+          <p x-show="winetype === 'three'">All three - what a party!</p> 
+      
+          <p>
+          <span x-text="`${quantity} bottles delivered`"></span>
+          <span x-show="howoften === 'weekly'">every week:-)</span> 
+          <span x-show="howoften === 'fortnight'">every second week:-)</span> 
+          <span x-show="howoften === 'month'">in the beginning of every month:-)</span> 
+          <span x-show="howoften === 'threemonths'">in the beginning of every third month:-)</span> 
+          </p>
+      
+          <p><span>Price: </span><span class="font-bold" x-text="`${quantity * 75 + 49} DKK `"></span><span>per delivery including transport</span></p>
+        </div> 
+        </section>
+        <footer class="py-8 flex justify-between">
+          <div class="">
+            <button id="knap2" class="border-2 border-black p-2" x-on:click="step = 'step1'" x-show="step === 'step2'">&LeftArrow; Wine type</button>
+            <button id="knap3" class="border-2 border-black p-2" x-on:click="step = 'step2'" x-show="step === 'step3'">&LeftArrow; Quantity</button>
+            <button id="knap4" class="border-2 border-black p-2" x-on:click="step = 'step3'" x-show="step === 'step4'">&LeftArrow; Frequency</button>
+          </div>
+          <div class="">
+            <button id="knap2" class="border-2 border-black p-2" x-on:click="step = 'step2'" x-show="step === 'step1'">Quantity &RightArrow;</button>
+            <button id="knap3" class="border-2 border-black p-2" x-on:click="step = 'step3'" x-show="step === 'step2'">Frequency &RightArrow;</button>
+            <button id="knap4" class="border-2 border-black p-2" x-on:click="step = 'step4'" x-show="step === 'step3'">Confirmation &RightArrow;</button>
+            <button id="knap4" class="border-2 border-black p-2 bg-red-200" x-on:click="step = 'step4'" x-show="step === 'step4'">Put subscription in basket!</button>
+          </div>
+        </footer>
+      
+      </main>
+      
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
