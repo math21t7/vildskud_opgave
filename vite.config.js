@@ -27,7 +27,7 @@ export default defineConfig({
         cookies: resolve(__dirname, "src/cookies.html"),
         privateliv: resolve(__dirname, "src/privateliv.html"),
         sitemap: resolve(__dirname, "src/sitemap.html"),
-        kontakt: resolve(__dirname, "src/kontakt.html"),
+        kontakt: resolve(__dirname, "src/Kontakt.html"),
         vildmedmig: resolve(__dirname, "src/vildmedmig.html"),
 
         // about: resolve(__dirname, "src/about.html"),
