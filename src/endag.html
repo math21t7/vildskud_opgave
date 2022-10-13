@@ -4,100 +4,310 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Endags-billetter</title>
   </head>
-  <body>
+  <body class="grid place-content-center">
+    <header>
+      <!------burger menu-->
+      <a href="index.html"><img src="logo_ny.webp" alt="logo" class="absolute w-32 p-2"></a>
+      <div class="grid grid-cols-2">
+        <div id="menuknap" class="lg:hidden z-20 justify-self-end p-4 text-3xl absolute text-black">☰</div>
+      </div>
+      <nav>
+        <ul id="topnav1" class=" bg-green text-white w-screen h-screen text-3xl p-8 leading-10 absolute z-10 lg:hidden">
+          <li class="flex">Søg 
+            <form><label for="default-search" class="mb-2 text-sm font-medium sr-only "></label><input type="search" class="text-black rounded-sm ml-2 active:border-white  bg-green-200"></form>
+            <svg width="32" height="32" viewBox="0 0 18 18"><path fill="#FFFFFF" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg></li>
+          <li class="underline"><a href="index.html">Forside</a></li>
+          <li class="underline"><a href="program.html">Program</a></li>
+          <li class="underline"><a href="events.html">Events</a></li>
+          <li>Vær med</li>
+          <li class="indent-4 underline"><a href="frivillige.html">Frivillige</a></li>
+          <li class="indent-4 underline"><a href="open-call.html">Open call</a></li>
+          <li class="underline"><a href="om.html">Om</a></li>
+          <li class="underline"><a href="billetter.html">Billetter</a></li>
+          <li class="underline"><a href="Kontakt.html">Kontakt</a></li>
+        </ul>
+        <!-----alm. menu---->
+        <div class="hidden lg:flex text-black right-10 text-2xl mt-8 gap-10 justify-end mr-2">
+        <ul id="topnav2" class="flex gap-7" >
+          <li><a href="program.html">Program</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li>Vær med
+            <ul>
+              <li><a href="frivillige.html">Frivillige</a></li>
+              <li><a href="open-call.html">Open call</a></li>
+            </ul>
+          </li>
+          <li><a href="om.html">Om</a></li>
+          <li><a href="billetter.html">Billetter</a></li>
+          <li><a href="Kontakt.html">Kontakt</a></li>
+          <li><svg  width="32" height="32" viewBox="0 0 24 24"><path fill="#000000" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg></li>
+        </ul>
+      </div>
+      </nav>
+    </header>
     <h2 class="text-center text-5xl">Endags-billet</h2>
-    <main x-data="{ step: 'step1', winetype: 'both', quantity: '6', howoften : 'weekly', amount : '4'}">
-        <header class="border-b border-slate-500 pt-4 pb-8">
+    <main class="p-4" x-data="{ step: 'step1', antal: '1', forestilling: 'valg', pladser: '0', forestilling_3:'valg', pladser_3: '0', forestilling_4: 'valg', pladser_4:'0', forestilling_5:'valg', pladser_5:'0', forestilling_6:'valg', pladser_6:'0'}">
+        <header class="border-b border-slate-500 pt-4 pb-8 sm:grid sm:place-content-center text-sm">
           <ul class="">
             <li class="inline pr-2" :class="{'border-black border-b': step === 'step1' }">1: Antal billetter</li>
             <li class="inline pr-2" :class="{'border-black border-b': step === 'step2' }" >2: Valg af dage</li>
-            <li class="inline pr-2" :class="{'border-black border-b': step === 'step3' }">3: Delivery frequency</li>
-            <li class="inline pr-2" :class="{'border-black border-b': step === 'step4' }">4: Confirmation</li>
+            <li class="inline pr-2" :class="{'border-black border-b': step === 'step3' }">3: Pladsreservation</li>
+            <li class="inline pr-2" :class="{'border-black border-b': step === 'step4' }">4: Oversigt</li>
           </ul>
         </header>
-        <section class="border-b border-slate-500 py-8">
+        <section class="border-b border-slate-500 py-8 grid place-content-center">
           <!-- step 1 -->
         <div id="step1" x-show="step === 'step1'">
-          <p  class="mb-4">So: You love wine, and want wine delivered to your doorstep on subscription!</p>
-          <p class="mb-4">What type of wine?</p>
-          <form id="winesubscriptionform" class="grid">  
-            <div class="flex">
-              <input type="radio" id="red" name="winetype" value="red" x-model="winetype">
-              <label for="red">Red</label> <img src="j-mckinney-zIo9Fbh8qJc-unsplash.jpg" alt="" class="w-24"></div>                    
-            <div>
-              <input type="radio" id="white" name="winetype" value="white" x-model="winetype">
-              <label for="white">White</label>
-            </div>
-            <div>
-              <input type="radio" id="rosé" name="winetype" value="rosé" x-model="winetype">
-              <label for="white">Rosé</label>
-            </div>
-            <div>
-              <input type="radio" id="both" name="winetype" value="three" x-model="winetype">
-              <label for="both">All three!</label> 
-            </div>
-          </form>
+          <p  class="mb-4">Hvor mange billetter ønsker du at købe?</p>
+          <label for="antal">Antal:</label>
+          <select name="antal" id="antal" x-model="antal" form="endagsform">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select> 
         </div>
            <!-- step 2-->
-           <div id="step2" x-show="step === 'step2'">
-            <p>How many bottles per delivery?</p>                    
-            <label for="quantity">Choose how many bottles per delivery:</label>
-            <select name="quantity" id="quantity" x-model="quantity" form="winesubscriptionform">
-              <option value="6">6</option>
-              <option value="12">12</option>
-              <option value="18">18</option>
-              <option value="24">24</option>
-              <option value="30">30</option>
-            </select> 
+           <div id="step2" x-show="step === 'step2'" class="grid place-content-center">
+            <p class="text-2xl mb-2 text-center">Valg af dage</p>                    
+            <form id="endagsform">  
+              <div>
+                <input type="checkbox" id="2august" name="dato" value="2august" x-model="dato">
+                <label for="2august">Tirsdag d. 2. August</label> <img src="j-mckinney-zIo9Fbh8qJc-unsplash.jpg" alt="" class="w-24"></div>                    
+              <div>
+                <input type="checkbox" id="3august" name="dato" value="3august" x-model="dato">
+                <label for="3august">Onsdag d. 3. August</label>
+              </div>
+              <div>
+                <input type="checkbox" id="4august" name="dato" value="4august" x-model="dato">
+                <label for="4august">Torsdag d. 4. August</label>
+              </div>
+              <div>
+                <input type="checkbox" id="5august" name="dato" value="5august" x-model="dato">
+                <label for="5august">Fredag d. 5. August</label> 
+              </div>
+              <div>
+                <input type="checkbox" id="6august" name="dato" value="6august" x-model="dato">
+                <label for="6august">Lørdag d. 6. August</label> 
+              </div>
+            </form>
           </div>
             <!-- step 3 -->
-        <div id="step3" x-show="step === 'step3'">
-          <p>How often do you want the wine delivered?</p>                    
-          <label for="howoften">Delivery frequency:</label>
-          <select name="howoften" id="howoften" x-model="howoften" form="winesubscriptionform">
-            <option value="weekly">Every week!</option>
-            <option value="fortnight">Every second week</option>
-            <option value="month">Once a month</option>
-            <option value="threemonths">Every third month </option>
+        <div id="step3" x-show="step === 'step3'" class="grid place-content-center"> 
+          <p class="text-2xl mb-2 text-center">Pladsreservation</p>
+          <p>Tirsdag d. 2. August</p>                 
+          <label for="forestilling" class="mb-2"></label>
+          <select name="forestilling" id="dato_2aug" x-model="forestilling" form="endagsform" class="mb-2">
+            <option value="valg">Vælg forestilling og tidspunkt</option>
+            <option value="fires2aug1600">What fires together wires together (ZeBU) 16:00 </option>
+            <option value="vild2aug1830">VILD MED MIG (VOX-Teaterhuset) 18:30</option>
+          </select> 
+          <label for="pladser" class="mb-2">Antal pladser</label>
+          <select name="pladser" id="pladser" x-model="pladser" form="endagsform" class="mb-12">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select> 
+          <br>
+          <p>Onsdag d. 3. August</p>
+          <label for="forestilling_3" class="mb-2"></label>
+          <select name="forestilling_3" id="dato_3aug" x-model="forestilling_3" form="endagsform" class="mb-2">
+            <option value="valg">Vælg forestilling og tidspunkt</option>
+            <option value="vild3aug1615">VILD MED MIG (VOX-Teaterhuset) 16:15</option>
+            <option value="fires3aug1730">What fires together wires together (ZeBU) 17:30 </option>
+            <option value="vild3aug2000">VILD MED MIG (VOX-Teaterhuset) 20:00</option>
+          </select> 
+          <label for="pladser_3" class="mb-2">Antal pladser</label>
+          <select name="pladser_3" id="pladser" x-model="pladser_3" form="endagsform" class="mb-12">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select> 
+          <br>
+          <p>Torsdag d. 4. August</p>
+          <label for="forestilling_4" class="mb-2"></label>
+          <select name="forestilling_4" id="dato_4aug" x-model="forestilling_4" form="endagsform" class="mb-2">
+            <option value="valg">Vælg forestilling og tidspunkt</option>
+            <option value="yoku4aug1645">GO GO Yo-YOKU (Venon-Teaterhuset) 16:45</option>
+            <option value="levende4aug1830">DET LEVENDE RUM (ZeBU) 18:30 </option>
+            <option value="yoku4aug2015">GO GO Yo-YOKU (Venon-Teaterhuset) 20:15</option>
+          </select> 
+          <label for="pladser_4" class="mb-2">Antal pladser</label>
+          <select name="pladser_4" id="pladser" x-model="pladser_4" form="endagsform" class="mb-12">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select> 
+          <br>
+          <p>Fredag d. 5. August</p>
+          <label for="forestilling_5" class="mb-2"></label>
+          <select name="forestilling_5" id="dato_5aug" x-model="forestilling_5" form="endagsform" class="mb-2">
+            <option value="valg">Vælg forestilling og tidspunkt</option>
+            <option value="birth5aug1500">RE-BIRTH (Downunder) 15:00 </option>
+            <option value="yoku5aug1630">GO GO Yo-YOKU (Venon-Teaterhuset) 16:30</option>
+            <option value="levende5aug1800">DET LEVENDE RUM (ZeBU) 18:00 </option>
+            <option value="birth5aug1800">RE-BIRTH (Downunder) 18:00 </option>
+            <option value="mand5aug1915">Mand Ligger Som Mand Har Redt 19:15 </option>
+            <option value="birth5aug2015">RE-BIRTH (Downunder) 20:15 </option>
+          </select> 
+          <label for="pladser_5" class="mb-2">Antal pladser</label>
+          <select name="pladser_5" id="pladser" x-model="pladser_5" form="endagsform" class="mb-12">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select> 
+          <br>
+          <p>Lørdag d. 6. August</p>
+          <label for="forestilling_6" class="mb-2"></label>
+          <select name="forestilling_6" id="dato_6aug" x-model="forestilling_6" form="endagsform" class="mb-2">
+            <option value="valg">Vælg forestilling og tidspunkt</option>
+            <option value="frygten6aug1230">Frygten for ikke at leve (Xenon-Teaterhuset) 12:30 </option>
+            <option value="levende6aug1245">DET LEVENDE RUM (ZeBU) 12:45 </option>
+            <option value="mand6aug1300">Mand Ligger Som Mand Har Redt (VOX-Teaterhuset) 13:00 </option>
+            <option value="frygten6aug1445">Frygten for ikke at leve (Xenon-Teaterhuset) 14:45 </option>
+            <option value="levende6aug1615">DET LEVENDE RUM (ZeBU) 16:15 </option>
+            <option value="mand6aug1730">Mand Ligger Som Mand Har Redt (VOX-Teaterhuset) 17:30 </option>
+          </select> 
+          <label for="pladser_6" class="mb-2">Antal pladser</label>
+          <select name="pladser_6" id="pladser" x-model="pladser_6" form="endagsform" class="mb-12">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select> 
         </div>
         <!-- step 4-->
-        <div id="step4" x-show="step === 'step4'" class="prose">
-          <h3 >Your subscription:</h3> 
+        <div id="step4" x-show="step === 'step4'" class="prose grid place-content-center">
+          <h3 class="text-center text-4xl">Oversigt</h3> 
+          <p class="font-bold">Endags-billet</p>
       
-          <p x-show="winetype === 'red'">Red wine only</p> 
-          <p x-show="winetype === 'white'">White wine only</p>   
-          <p x-show="winetype === 'rosé'">Rosé wine only</p> 
-          <p x-show="winetype === 'three'">All three - what a party!</p> 
-      
+      <!-----2 august-->
           <p>
-          <span x-text="`${quantity} bottles delivered`"></span>
-          <span x-show="howoften === 'weekly'">every week:-)</span> 
-          <span x-show="howoften === 'fortnight'">every second week:-)</span> 
-          <span x-show="howoften === 'month'">in the beginning of every month:-)</span> 
-          <span x-show="howoften === 'threemonths'">in the beginning of every third month:-)</span> 
+          <span x-text="`Antal billetter: ${antal}`"></span>
+          <span x-show="forestilling === 'fires2aug1600'"><br><strong>Tirsdag d. 2. August:</strong> <br>What fires together wires together (ZeBU) 16:00 </span> 
+          <span x-show="forestilling === 'vild2aug1830'"><br><strong>Tirsdag d. 2. August:</strong><br>VILD MED MIG (VOX-Teaterhuset) 18:30</span> 
+          <span x-show="pladser === '1'" class="mb-2"><br>1 pladser</span> 
+          <span x-show="pladser === '2'" class="mb-2"><br>2 pladser</span> 
+          <span x-show="pladser === '3'" class="mb-2"><br>3 pladser</span> 
+          <span x-show="pladser === '4'" class="mb-2"><br>4 pladser</span> 
+          <span x-show="pladser === '5'" class="mb-2"><br>5 pladser</span>
+
+<!------3 august-->
+<span x-show="forestilling_3 === 'fires3aug1730'"><br><strong>Onsdag d. 3. August: </strong><br>What fires together wires together (ZeBU) 17:30 </span>
+<span x-show="forestilling_3 === 'vild3aug1615'"><br><strong>Onsdag d. 3. August: </strong><br>VILD MED MIG (VOX-Teaterhuset) 16:15</span> 
+          <span x-show="forestilling_3 === 'vild3aug2000'"><br><strong>Onsdag d. 3. August: </strong><br>VILD MED MIG (VOX-Teaterhuset) 20:00</span> 
+          <span x-show="pladser_3 === '1'" class="mb-2"><br>1 pladser</span> 
+          <span x-show="pladser_3 === '2'" class="mb-2"><br>2 pladser</span> 
+          <span x-show="pladser_3 === '3'" class="mb-2"><br>3 pladser</span> 
+          <span x-show="pladser_3 === '4'" class="mb-2"><br>4 pladser</span> 
+          <span x-show="pladser_3 === '5'" class="mb-2"><br>5 pladser</span> 
           </p>
+
+          <!------4 August-->
+          <span x-show="forestilling_4 === 'yoku4aug1645'"><br><strong>Torsdag d. 4. August: </strong><br>GO GO Yo-YOKU (Venon-Teaterhuset) 16:45 </span>
+<span x-show="forestilling_4 === 'levende4aug1830'"><br><strong>Torsdag d. 4. August: </strong><br>DET LEVENDE RUM (ZeBU) 18:30</span> 
+<span x-show="forestilling_4 === 'yoku4aug2015'"><br><strong>Torsdag d. 4. August: </strong><br>GO GO Yo-YOKU (Venon-Teaterhuset) 20:15 </span>
+
+          <span x-show="pladser_4 === '1'" class="mb-2"><br>1 pladser</span> 
+          <span x-show="pladser_4 === '2'" class="mb-2"><br>2 pladser</span> 
+          <span x-show="pladser_4 === '3'" class="mb-2"><br>3 pladser</span> 
+          <span x-show="pladser_4 === '4'" class="mb-2"><br>4 pladser</span> 
+          <span x-show="pladser_4 === '5'" class="mb-2"><br>5 pladser</span>
+
+
+          <!------5 August---->
+          <span x-show="forestilling_5 === 'yoku5aug1630'"><br><strong>Fredag d. 5. August: </strong><br>GO GO Yo-YOKU (Venon-Teaterhuset) 16:30 </span>
+          <span x-show="forestilling_5 === 'birth5aug1500'"><br><strong>Fredag d. 5. August: </strong><br>RE-BIRTH (Downunder) 15:00 </span>
+          <span x-show="forestilling_5 === 'birth5aug1800'"><br><strong>Fredag d. 5. August: </strong><br>RE-BIRTH (Downunder) 18:00 </span>
+          <span x-show="forestilling_5 === 'birth5aug2010'"><br><strong>Fredag d. 5. August: </strong><br>RE-BIRTH (Downunder) 20:15 </span>
+          <span x-show="forestilling_5 === 'levende5aug1800'"><br><strong>Fredag d. 5. August: </strong><br>DET LEVENDE RUM (ZeBU) 18:00 </span>
+          <span x-show="forestilling_5 === 'mand5aug1915'"><br><strong>Fredag d. 5. August: </strong><br>Mand Ligger Som Mand Har Redt 19:15 (VOX-Teaterhuset) </span>
+          <span x-show="pladser_5 === '1'"><br>1 pladser</span> 
+          <span x-show="pladser_5 === '2'"><br>2 pladser</span> 
+          <span x-show="pladser_5 === '3'"><br>3 pladser</span> 
+          <span x-show="pladser_5 === '4'"><br>4 pladser</span> 
+          <span x-show="pladser_5 === '5'"><br>5 pladser</span> 
+
+          <!-----6 August-->
+
+          <span x-show="forestilling_6 === 'frygten6aug1230'"><br><strong>Lørdag d. 6. August</strong><br>Frygten for ikke at leve (Xenon-Teaterhuset) 12:30 </span>
+          <span x-show="forestilling_6 === 'levende6aug1245'"><br><strong>Lørdag d. 6. August</strong><br>DET LEVENDE RUM (ZeBU) 12:45 </span>
+          <span x-show="forestilling_6 === 'mand6aug1300'"><br><strong>Lørdag d. 6. August</strong><br>RMand Ligger Som Mand Har Redt (VOX-Teaterhuset) 13:00 </span>
+          <span x-show="forestilling_6 === 'frygten6aug1445'"><br><strong>Lørdag d. 6. August</strong><br>rygten for ikke at leve (Xenon-Teaterhuset) 14:45 </span>
+          <span x-show="forestilling_6 === 'levende6aug1615'"><br><strong>Lørdag d. 6. August</strong><br>DET LEVENDE RUM (ZeBU) 16:15 </span>
+          <span x-show="forestilling_6 === 'mand6aug1730'"><br><strong>Lørdag d. 6. August</strong><br>Mand Ligger Som Mand Har Redt (VOX-Teaterhuset) 17:30 </span>
+          
+          <span x-show="pladser_6 === '1'" class="mb-2"><br>1 pladser</span> 
+          <span x-show="pladser_6 === '2'" class="mb-2"><br>2 pladser</span> 
+          <span x-show="pladser_6 === '3'" class="mb-2"><br>3 pladser</span> 
+          <span x-show="pladser_6 === '4'" class="mb-2"><br>4 pladser</span> 
+          <span x-show="pladser_6 === '5'" class="mb-2"><br>5 pladser</span>   
       
-          <p><span>Price: </span><span class="font-bold" x-text="`${quantity * 75 + 49} DKK `"></span><span>per delivery including transport</span></p>
+          <p><span>Pris: </span><span class="font-bold" x-text="`${antal * 120} DKK `"></span></p>
         </div> 
         </section>
-        <footer class="py-8 flex justify-between">
+        <footer class="py-8 flex justify-center gap-20">
           <div class="">
-            <button id="knap2" class="border-2 border-black p-2" x-on:click="step = 'step1'" x-show="step === 'step2'">&LeftArrow; Wine type</button>
-            <button id="knap3" class="border-2 border-black p-2" x-on:click="step = 'step2'" x-show="step === 'step3'">&LeftArrow; Quantity</button>
-            <button id="knap4" class="border-2 border-black p-2" x-on:click="step = 'step3'" x-show="step === 'step4'">&LeftArrow; Frequency</button>
+            <button x-show="step === 'step1'" class="rounded-md border-2 border-green-200 p-2"><a href="billetter.html">Tilbage</a></button>
+            <button id="knap2" class="rounded-md border-2 border-black p-2" x-on:click="step = 'step1'" x-show="step === 'step2'">&LeftArrow; Antal billetter</button>
+            <button id="knap3" class="rounded-md border-2 border-black p-2" x-on:click="step = 'step2'" x-show="step === 'step3'">&LeftArrow; Valg af dage</button>
+            <button id="knap4" class="rounded-md border-2 border-black p-2" x-on:click="step = 'step3'" x-show="step === 'step4'">&LeftArrow; Pladsreservation</button>
           </div>
           <div class="">
-            <button id="knap2" class="border-2 border-black p-2" x-on:click="step = 'step2'" x-show="step === 'step1'">Quantity &RightArrow;</button>
-            <button id="knap3" class="border-2 border-black p-2" x-on:click="step = 'step3'" x-show="step === 'step2'">Frequency &RightArrow;</button>
-            <button id="knap4" class="border-2 border-black p-2" x-on:click="step = 'step4'" x-show="step === 'step3'">Confirmation &RightArrow;</button>
-            <button id="knap4" class="border-2 border-black p-2 bg-red-200" x-on:click="step = 'step4'" x-show="step === 'step4'">Put subscription in basket!</button>
+            <button id="knap2" class="rounded-md border-2 border-black p-2" x-on:click="step = 'step2'" x-show="step === 'step1'">Valg af dage &RightArrow;</button>
+            <button id="knap3" class="rounded-md border-2 border-black p-2" x-on:click="step = 'step3'" x-show="step === 'step2'">Pladsreservation &RightArrow;</button>
+            <button id="knap4" class="rounded-md border-2 border-black p-2" x-on:click="step = 'step4'" x-show="step === 'step3'">Oversigt &RightArrow;</button>
+            <button id="knap4" class="rounded-md border-2 border-black p-2 bg-green sm:hover:bg-greenhover" x-on:click="step = 'step4'" x-show="step === 'step4'">Bekræft køb</button>
           </div>
         </footer>
       
       </main>
+      <footer class="mt-24 ">
+        <div class="bg-green sm:pt-8">
+          <div class="sm:grid sm:grid-cols-3">
+            <div>
+      <p class="text-center sm:text-left text-2xl mx-4">Vildskud</p>
+      <p class="text-center sm:text-left mx-4">Vildskud er Københavns festival for uafhængig scenekunst. Vær med, se med.</p>
+      <a href="kontakt.html"><p class="text-center sm:text-left my-4 underline mx-4">Kontakt</p></a>
+      <div class=" mx-4 flex place-content-center sm:grid sm:place-content-start gap-5 underline">
+        <a href=""><p>Privatlivspolitik</p></a>
+        <a href="sitemap.html"><p>Sitemap</p></a>
+        <a href=""><p>Cookie politik</p></a>
+      </div>
+    </div>
+      <div class="grid place-content-center">
+      <img src="logo_ny.webp" alt="logo" class="w-32 sm:w-48 mt-4">
+    </div>
+    <div>
+      <p class="text-center sm:text-right text-2xl mx-4">Vær Social</p>
+      <p class="text-center sm:text-right mx-4">Find os på de sociale medier</p>
+      <div class="flex place-content-center  sm:place-content-end gap-5 sm:mt-8 mb-2 my-2 mx-4">
+       <a href="https://www.facebook.com/vildskudfestival/"><svg width="32" height="32" viewBox="0 0 20 20"><path fill="#FFFFFF" d="M17 1H3c-1.1 0-2 .9-2 2v14c0 1.101.9 2 2 2h7v-7H8V9.525h2v-2.05c0-2.164 1.212-3.684 3.766-3.684l1.803.002v2.605h-1.197c-.994 0-1.372.746-1.372 1.438v1.69h2.568L15 12h-2v7h4c1.1 0 2-.899 2-2V3c0-1.1-.9-2-2-2z"/></svg></a>
+      <a href="https://www.instagram.com/vildskudfestival/"><svg width="32" height="32" viewBox="0 0 32 32"><path fill="#FFFFFF" d="M16 0c-4.349 0-4.891.021-6.593.093c-1.709.084-2.865.349-3.885.745a7.847 7.847 0 0 0-2.833 1.849A7.757 7.757 0 0 0 .84 5.52C.444 6.54.179 7.696.095 9.405c-.077 1.703-.093 2.244-.093 6.593s.021 4.891.093 6.593c.084 1.704.349 2.865.745 3.885a7.847 7.847 0 0 0 1.849 2.833a7.757 7.757 0 0 0 2.833 1.849c1.02.391 2.181.661 3.885.745c1.703.077 2.244.093 6.593.093s4.891-.021 6.593-.093c1.704-.084 2.865-.355 3.885-.745a7.847 7.847 0 0 0 2.833-1.849a7.716 7.716 0 0 0 1.849-2.833c.391-1.02.661-2.181.745-3.885c.077-1.703.093-2.244.093-6.593s-.021-4.891-.093-6.593c-.084-1.704-.355-2.871-.745-3.885a7.847 7.847 0 0 0-1.849-2.833A7.716 7.716 0 0 0 26.478.838c-1.02-.396-2.181-.661-3.885-.745C20.89.016 20.349 0 16 0zm0 2.88c4.271 0 4.781.021 6.469.093c1.557.073 2.405.333 2.968.553a4.989 4.989 0 0 1 1.844 1.197a4.931 4.931 0 0 1 1.192 1.839c.22.563.48 1.411.553 2.968c.072 1.688.093 2.199.093 6.469s-.021 4.781-.099 6.469c-.084 1.557-.344 2.405-.563 2.968c-.303.751-.641 1.276-1.199 1.844a5.048 5.048 0 0 1-1.844 1.192c-.556.22-1.416.48-2.979.553c-1.697.072-2.197.093-6.479.093s-4.781-.021-6.48-.099c-1.557-.084-2.416-.344-2.979-.563c-.76-.303-1.281-.641-1.839-1.199c-.563-.563-.921-1.099-1.197-1.844c-.224-.556-.48-1.416-.563-2.979c-.057-1.677-.084-2.197-.084-6.459c0-4.26.027-4.781.084-6.479c.083-1.563.339-2.421.563-2.979c.276-.761.635-1.281 1.197-1.844c.557-.557 1.079-.917 1.839-1.199c.563-.219 1.401-.479 2.964-.557c1.697-.061 2.197-.083 6.473-.083zm0 4.907A8.21 8.21 0 0 0 7.787 16A8.21 8.21 0 0 0 16 24.213A8.21 8.21 0 0 0 24.213 16A8.21 8.21 0 0 0 16 7.787zm0 13.546c-2.948 0-5.333-2.385-5.333-5.333s2.385-5.333 5.333-5.333c2.948 0 5.333 2.385 5.333 5.333S18.948 21.333 16 21.333zM26.464 7.459a1.923 1.923 0 0 1-1.923 1.921a1.919 1.919 0 1 1 0-3.838c1.057 0 1.923.86 1.923 1.917z"/></svg></a>
+    </div>
+  </div>
+    </div>
+    <p class="text-center ">(c) 2022 Vildskud</p>
+  </div>
+  
+      </footer>
       
 
     <script type="module" src="./main.js"></script>
