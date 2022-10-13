@@ -29,7 +29,7 @@ export default defineConfig({
         sitemap: resolve(__dirname, "src/sitemap.html"),
         kontakt: resolve(__dirname, "src/Kontakt.html"),
         vildmedmig: resolve(__dirname, "src/vildmedmig.html"),
-        sitemap: resolve(__dirname, "src/sitemap.xml"),
+        sitemapxml: resolve(__dirname, "src/sitemap.xml"),
 
         // about: resolve(__dirname, "src/about.html"),
       },
