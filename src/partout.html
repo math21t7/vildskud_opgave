@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partout-billet</title>
+  </head>
+  <body class="">
+    <header>
+      <!------burger menu-->
+      <div class="grid grid-cols-2">
+        <div>
+          <a href="index.html"><img src="logo_header.webp" alt="logo" class="w-32 p-2 sm:hidden relative"></a>
+        </div>
+        <div id="menuknap" class="sm:hidden z-20 justify-self-end p-4 text-3xl">☰</div>
+      </div>
+      <nav>
+        <ul id="topnav1" class=" bg-green text-white w-screen h-screen text-3xl p-8 leading-10 -mt-[127px] absolute z-10 sm:hidden">
+          <li class="flex">Søg 
+            <form><label for="default-search" class="mb-2 text-sm font-medium sr-only "></label><input type="search" class="text-black rounded-sm ml-2 active:border-white  bg-green-200"></form>
+            <svg width="32" height="32" viewBox="0 0 18 18"><path fill="#FFFFFF" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg></li>
+          <li class="underline"><a href="index.html">Forside</a></li>
+          <li class="underline"><a href="program.html">Program</a></li>
+          <li class="underline"><a href="events.html">Events</a></li>
+          <li>Vær med</li>
+          <li class="indent-4 underline"><a href="frivillige.html">Frivillige</a></li>
+          <li class="indent-4 underline"><a href="open-call.html">Open call</a></li>
+          <li class="underline"><a href="om.html">Om</a></li>
+          <li class="underline"><a href="billetter.html">Billetter</a></li>
+          <li class="underline"><a href="Kontakt.html">Kontakt</a></li>
+        </ul>
+        <!-----alm. menu---->
+        <ul id="topnav2" class="hidden sm:grid sm:grid-cols-2" >
+          <div>
+            <li> <a href="index.html"><img src="logo_header.webp" alt="logo" class="w-44 p-2"></a></li>
+          </div>
+          <div class="flex justify-self-end p-8 text-xl sm:gap-3 md:gap-5" >
+          <li><a href="program.html">Program</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li>Vær med
+            <ul>
+              <li><a href="frivillige.html">Frivillige</a></li>
+              <li><a href="open-call.html">Open call</a></li>
+            </ul>
+          </li>
+          <li><a href="om.html">Om</a></li>
+          <li><a href="billetter.html">Billetter</a></li>
+          <li><a href="Kontakt.html">Kontakt</a></li>
+          <li><svg  width="32" height="32" viewBox="0 0 24 24"><path fill="#000000" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg></li>
+        </div>
+        </ul>
+      </nav>
+    </header>
+    <h2 class="text-center text-5xl">Partout-billet</h2>
+    <main x-data="{ step: 'step1', antal: '1', quantity: '6', dato_partout_yoku : 'valg', pladser_partout_yoku : '0', dato_partout_levende : 'valg', pladser_partout_levende: '0', dato_partout_vild: 'valg', pladser_partout_vild:'0', dato_partout_birth:'valg', pladser_partout_birth:'0', dato_partout_mand: 'valg', pladser_partout_mand:'0', dato_partout_frygten:'valg', pladser_partout_frygten:'0'}">
+        <header class="border-b border-green-200 pt-4 pb-8">
+          <ul class="flex place-content-center">
+            <li class="inline pr-2" :class="{'border-green-200 border-b': step === 'step1' }">1: Antal billetter</li>
+            <li class="inline pr-2" :class="{'border-green-200 border-b': step === 'step2' }" >2: Pladsreservation</li>
+            <li class="inline pr-2" :class="{'border-green-200 border-b': step === 'step3' }">3: Bekræft af køb</li>
+          </ul>
+        </header>
+        <section class="border-b border-green-200 py-8 grid place-items-center">
+          <!-- step 1 -->
+        <div id="step1" x-show="step === 'step1'">
+          <p class="mb-4">Vælg antallet af billetter du ønsker at købe:</p>
+          <label for="antal">Antal billetter:</label>
+          <select name="antal" id="antal" x-model="antal" form="partoutform">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select> 
+        </div>
+           <!-- step 2-->
+           <div id="step2" x-show="step === 'step2'" class="grid">
+            <p  class="mb-4 text-2xl text-center">Pladsreservation</p>
+              <label for="dato_partout_yoku" class="mb-2">GO GO YO-YOKU - Xenon-Teaterhuset</label>
+              <select name="dato_partout_yoku" id="dato_partout_yoku" x-model="dato_partout_yoku" form="partoutform" class="mb-2">
+                <option value="valg">Vælg tidspunkt</option>
+                <option value="4aug1645">Torsdag d. 4. Aug. 16:45</option>
+                <option value="4aug2000">Torsdag d. 4. Aug. 20:00</option>
+              </select> 
+              <label for="pladser_partout_yoku" class="mb-2">Antal pladser</label>
+              <select name="pladser_partout_yoku" id="pladser_partout_yoku" x-model="pladser_partout_yoku" form="partoutform" class="mb-12">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> 
+              <label for="dato_partout_levende" class="mb-2">DET LEVENDE RUM - ZeBU</label>
+              <select name="dato_partout_levende" id="dato_partout_levende" x-model="dato_partout_levende" form="ticketform" class="mb-2">
+                <option value="valg">Vælg tidspunkt</option>
+                <option value="4aug1830">Torsdag d. 4. Aug. 18:30</option>
+                <option value="5aug1800">Fredag d. 5. Aug. 18:00</option>
+                <option value="6aug1245">Lørdag d. 6. Aug. 12:45</option>
+              </select> 
+              <label for="pladser_partout_levende" class="mb-2">Antal pladser</label>
+              <select name="pladser_partout_levende" id="pladser_partout_levende" x-model="pladser_partout_levende" form="ticketform" class="mb-12">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> 
+              <label for="dato_partout_vild" class="mb-2">VILD MED MIG - VOX-Teaterhuset</label>
+              <select name="dato_partout_vild" id="dato_partout_vild" x-model="dato_partout_vild" form="ticketform" class="mb-2">
+                <option value="valg">Vælg tidspunkt</option>
+                <option value="2aug1830">Tirsdag d. 2. Aug. 18:30</option>
+                <option value="3aug1615">Onsdag d. 3. Aug. 16:15</option>
+                <option value="3aug2000">Onsdag d. 3. Aug. 20:00</option>
+              </select> 
+              <label for="pladser_partout_vild" class="mb-2">Antal pladser</label>
+              <select name="pladser_partout_vild" id="pladser_partout_vild" x-model="pladser_partout_vild" form="ticketform" class="mb-12">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> 
+              <label for="dato_partout_birth" class="mb-2">RE-BIRTH - Downunder</label>
+              <select name="dato_partout_birth" id="dato_partout_birth" x-model="dato_partout_birth" form="ticketform" class="mb-2">
+                <option value="valg">Vælg tidspunkt</option>
+                <option value="5aug1530">Fredag d. 5. Aug. 15:00</option>
+                <option value="5aug1800">Fredag d. 5. Aug. 18:00</option>
+                <option value="5aug2015">Fredag d. 5. Aug. 20:15</option>
+              </select> 
+              <label for="pladser_partout_birth" class="mb-2">Antal pladser</label>
+              <select name="pladser_partout_birth" id="pladser_partout_birth" x-model="pladser_partout_birth" form="ticketform" class="mb-2">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> 
+              <label class="mt-12 mb-2" for="dato_partout_mand">Mand Ligger Som Mand Har Redt - VOX-Teaterhuset</label>
+              <select name="dato_partout_mand" id="dato_partout_mand" x-model="dato_partout_mand" form="ticketform" class="mb-2">
+                <option value="valg">Vælg tidspunkt</option>
+                <option value="5aug1915">Fredag d. 5. Aug. 19:15</option>
+                <option value="6aug1300">Lørdag d. 6. Aug. 13:00</option>
+                <option value="6aug1730">Lørdag d. 6. Aug. 17:30</option>
+              </select> 
+              <label for="pladser_partout_mand" class="mb-2">Antal pladser</label>
+              <select name="pladser_partout_mand" id="pladser_partout_mand" x-model="pladser_partout_mand" form="ticketform" class="mb-2">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> 
+              <label class="mt-12 mb-2" for="dato_partout_frygten">Frygten for ikke at leve - Xenon-Teaterhuset</label>
+              <select name="dato_partout_frygten" id="dato_partout_frygten" x-model="dato_partout_frygten" form="ticketform" class="mb-2">
+                <option value="valg">Vælg tidspunkt</option>
+                <option value="6aug1230">Lørdag d. 6. Aug. 12:30</option>
+                <option value="6aug1445">Lørdag d. 6. Aug. 14:45</option>
+              </select> 
+              <label for="pladser_partout_frygten" class="mb-2">Antal pladser</label>
+              <select name="pladser_partout_frygten" id="pladser_partout_frygten" x-model="pladser_partout_frygten" form="ticketform">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> 
+              </div>
+        <!-- step 3-->
+        <div id="step3" x-show="step === 'step3'" class="prose grid place-content-center">
+          <h3 class="text-center text-4xl">Oversigt</h3>
+          <h4>Partout-billet</h4>
+      
+          <p><span x-text="`Antal billetter: ${antal}`"></span></p> 
+        
+      
+          <p>
+          <span x-show="dato_partout_yoku === '4aug1645'">GO GO YO-YOKU - Xenon-Teaterhuset <br> Torsdag d. 4. Aug. 16:45<br></span>
+          <span x-show="dato_partout_yoku === '4aug2000'">GO GO YO-YOKU - Xenon-Teaterhuset <br> Torsdag d. 4. Aug. 20:00<br></span> 
+          <span x-show="pladser_partout_yoku === '1'">1 plads</span> 
+          <span x-show="pladser_partout_yoku === '2'">2 pladser</span> 
+          <span x-show="pladser_partout_yoku === '3'">3 pladser</span> 
+          <span x-show="pladser_partout_yoku === '4'">4 pladser</span> 
+          <span x-show="pladser_partout_yoku === '5'">5 pladser</span> 
+          </p>
+
+          <p>
+            <span x-show="dato_partout_levede === '4aug1830'">DET LEVENDE RUM - ZeBU <br> Torsdag d. 4. Aug. 18:30<br></span>
+            <span x-show="dato_partout_levende === '5aug1800'">DET LEVENDE RUM - ZeBU <br> Fredag d. 5. Aug. 18:00<br></span> 
+            <span x-show="dato_partout_levende === '6aug1245'">DET LEVENDE RUM - ZeBU <br> Lørdag d. 6. Aug. 12:45<br></span>
+            <span x-show="pladser_partout_levende === '1'">1 plads</span> 
+          <span x-show="pladser_partout_levende === '2'">2 pladser</span> 
+          <span x-show="pladser_partout_levende === '3'">3 pladser</span> 
+          <span x-show="pladser_partout_levende === '4'">4 pladser</span> 
+          <span x-show="pladser_partout_levende === '5'">5 pladser</span>  
+            </p>
+            <p>
+                <span x-show="dato_partout_vild === '2aug1830'">VILD MED MIG - VOX-Teaterhuset <br> Tirsdag d. 2. Aug. 18:30<br></span>
+                <span x-show="dato_partout_vild === '3aug1615'">VILD MED MIG - VOX-Teaterhuset <br> Onsdag d. 3. Aug. 16:15<br></span> 
+                <span x-show="dato_partout_vild === '3aug2000'">VILD MED MIG - VOX-Teaterhuset <br> Onsdag d. 3. Aug. 20:00<br></span>
+                <span x-show="pladser_partout_vild === '1'">1 plads</span> 
+              <span x-show="pladser_partout_vild === '2'">2 pladser</span> 
+              <span x-show="pladser_partout_vild === '3'">3 pladser</span> 
+              <span x-show="pladser_partout_vild === '4'">4 pladser</span> 
+              <span x-show="pladser_partout_vild === '5'">5 pladser</span>  
+                </p>
+
+                <p>
+                    <span x-show="dato_partout_birth === '5aug1530'">RE-BIRTH - Downunder <br> Fredag d. 5. Aug. 15:00<br></span>
+                    <span x-show="dato_partout_birth === '5aug1800'">RE-BIRTH - Downunder <br> Fredag d. 5. Aug. 18:00<br></span> 
+                    <span x-show="dato_partout_birth === '5aug2015'">RE-BIRTH - Downunder <br> Fredag d. 5. Aug. 20:15<br></span>
+                    <span x-show="pladser_partout_birth === '1'">1 plads</span> 
+                  <span x-show="pladser_partout_birth === '2'">2 pladser</span> 
+                  <span x-show="pladser_partout_birth === '3'">3 pladser</span> 
+                  <span x-show="pladser_partout_birth === '4'">4 pladser</span> 
+                  <span x-show="pladser_partout_birth === '5'">5 pladser</span>  
+                    </p>
+                    <p>
+                        <span x-show="dato_partout_mand === '5aug1915'">Mand Ligger Som Mand Har Redt - VOX-Teaterhuset <br> Fredag d. 5. Aug. 19:15<br></span>
+                        <span x-show="dato_partout_mand === '6aug1300'">Mand Ligger Som Mand Har Redt - VOX-Teaterhuset <br> Lørdag d. 6. Aug. 13:00<br></span> 
+                        <span x-show="dato_partout_mand === '6aug1730'">Mand Ligger Som Mand Har Redt - VOX-Teaterhuset <br> Lørdag d. 6. Aug. 17:30<br></span>
+                        <span x-show="pladser_partout_mand === '1'">1 plads</span> 
+                      <span x-show="pladser_partout_mand === '2'">2 pladser</span> 
+                      <span x-show="pladser_partout_mand === '3'">3 pladser</span> 
+                      <span x-show="pladser_partout_mand === '4'">4 pladser</span> 
+                      <span x-show="pladser_partout_mand === '5'">5 pladser</span>  
+                        </p>
+
+                        <p>
+                            <span x-show="dato_partout_frygten === '6aug1230'">Frygten for ikke at leve - Xenon-Teaterhuset <br> Lørdag d. 6. Aug. 12:30<br></span>
+                            <span x-show="dato_partout_frygten === '6aug1445'">Frygten for ikke at leve - Xenon-Teaterhuset <br> Lørdag d. 6. Aug. 14:45<br></span> 
+                            <span x-show="pladser_partout_frygten === '1'">1 plads</span> 
+                          <span x-show="pladser_partout_frygten === '2'">2 pladser</span> 
+                          <span x-show="pladser_partout_frygten === '3'">3 pladser</span> 
+                          <span x-show="pladser_partout_frygten === '4'">4 pladser</span> 
+                          <span x-show="pladser_partout_frygten === '5'">5 pladser</span>  
+                            </p>
+
+                    
+
+
+          <p><span>Pris: </span><span class="font-bold" x-text="`${antal * 295} DKK `"></span><span></span></p>
+        </div> 
+        </section>
+        <footer class="py-8 flex justify-center gap-20">
+            <div class="">
+              <button x-show="step === 'step1'" class="rounded-md border-2 border-green-200 p-2"><a href="billetter.html">Tilbage</a></button>
+              <button id="knap2" class="rounded-md border-2 border-green-200 p-2" x-on:click="step = 'step1'" x-show="step === 'step2'">&LeftArrow; Antal</button>
+              <button id="knap3" class="rounded-md border-2 border-green-200 p-2" x-on:click="step = 'step2'" x-show="step === 'step3'">&LeftArrow; Pladsreservation</button>
+            </div>
+            <div class="">
+              <button id="knap2" class="rounded-md border-2 border-green-200 p-2" x-on:click="step = 'step2'" x-show="step === 'step1'">Pladsreservation &RightArrow;</button>
+              <button id="knap3" class="rounded-md border-2 border-green-200 p-2" x-on:click="step = 'step3'" x-show="step === 'step2'">Oversigt &RightArrow;</button>
+              <button id="knap3" class="rounded-md border-2 border-green-200 p-2 bg-green sm:hover:bg-greenhover" x-on:click="step = 'step3'" x-show="step === 'step3'">Bekræft Køb</button>
+            </div>
+          </footer>
+      
+      </main>
+      <footer class="mt-24 ">
+        <div class="bg-green sm:pt-8">
+          <div class="sm:grid sm:grid-cols-3">
+            <div>
+      <p class="text-center sm:text-left text-2xl mx-4">Vildskud</p>
+      <p class="text-center sm:text-left mx-4">Vildskud er Københavns festival for uafhængig scenekunst. Vær med, se med.</p>
+      <a href="kontakt.html"><p class="text-center sm:text-left my-4 underline mx-4">Kontakt</p></a>
+      <div class=" mx-4 flex place-content-center sm:grid sm:place-content-start gap-5 underline">
+        <a href=""><p>Privatlivspolitik</p></a>
+        <a href="sitemap.html"><p>Sitemap</p></a>
+        <a href=""><p>Cookie politik</p></a>
+      </div>
+    </div>
+      <div class="grid place-content-center">
+      <img src="logo_header.webp" alt="logo" class="w-32 sm:w-48 mt-4">
+    </div>
+    <div>
+      <p class="text-center sm:text-right text-2xl mx-4">Vær Social</p>
+      <p class="text-center sm:text-right mx-4">Find os på de sociale medier</p>
+      <div class="flex place-content-center  sm:place-content-end gap-5 sm:mt-8 mb-2 my-2 mx-4">
+       <a href="https://www.facebook.com/vildskudfestival/"><svg width="32" height="32" viewBox="0 0 20 20"><path fill="#FFFFFF" d="M17 1H3c-1.1 0-2 .9-2 2v14c0 1.101.9 2 2 2h7v-7H8V9.525h2v-2.05c0-2.164 1.212-3.684 3.766-3.684l1.803.002v2.605h-1.197c-.994 0-1.372.746-1.372 1.438v1.69h2.568L15 12h-2v7h4c1.1 0 2-.899 2-2V3c0-1.1-.9-2-2-2z"/></svg></a>
+      <a href="https://www.instagram.com/vildskudfestival/"><svg width="32" height="32" viewBox="0 0 32 32"><path fill="#FFFFFF" d="M16 0c-4.349 0-4.891.021-6.593.093c-1.709.084-2.865.349-3.885.745a7.847 7.847 0 0 0-2.833 1.849A7.757 7.757 0 0 0 .84 5.52C.444 6.54.179 7.696.095 9.405c-.077 1.703-.093 2.244-.093 6.593s.021 4.891.093 6.593c.084 1.704.349 2.865.745 3.885a7.847 7.847 0 0 0 1.849 2.833a7.757 7.757 0 0 0 2.833 1.849c1.02.391 2.181.661 3.885.745c1.703.077 2.244.093 6.593.093s4.891-.021 6.593-.093c1.704-.084 2.865-.355 3.885-.745a7.847 7.847 0 0 0 2.833-1.849a7.716 7.716 0 0 0 1.849-2.833c.391-1.02.661-2.181.745-3.885c.077-1.703.093-2.244.093-6.593s-.021-4.891-.093-6.593c-.084-1.704-.355-2.871-.745-3.885a7.847 7.847 0 0 0-1.849-2.833A7.716 7.716 0 0 0 26.478.838c-1.02-.396-2.181-.661-3.885-.745C20.89.016 20.349 0 16 0zm0 2.88c4.271 0 4.781.021 6.469.093c1.557.073 2.405.333 2.968.553a4.989 4.989 0 0 1 1.844 1.197a4.931 4.931 0 0 1 1.192 1.839c.22.563.48 1.411.553 2.968c.072 1.688.093 2.199.093 6.469s-.021 4.781-.099 6.469c-.084 1.557-.344 2.405-.563 2.968c-.303.751-.641 1.276-1.199 1.844a5.048 5.048 0 0 1-1.844 1.192c-.556.22-1.416.48-2.979.553c-1.697.072-2.197.093-6.479.093s-4.781-.021-6.48-.099c-1.557-.084-2.416-.344-2.979-.563c-.76-.303-1.281-.641-1.839-1.199c-.563-.563-.921-1.099-1.197-1.844c-.224-.556-.48-1.416-.563-2.979c-.057-1.677-.084-2.197-.084-6.459c0-4.26.027-4.781.084-6.479c.083-1.563.339-2.421.563-2.979c.276-.761.635-1.281 1.197-1.844c.557-.557 1.079-.917 1.839-1.199c.563-.219 1.401-.479 2.964-.557c1.697-.061 2.197-.083 6.473-.083zm0 4.907A8.21 8.21 0 0 0 7.787 16A8.21 8.21 0 0 0 16 24.213A8.21 8.21 0 0 0 24.213 16A8.21 8.21 0 0 0 16 7.787zm0 13.546c-2.948 0-5.333-2.385-5.333-5.333s2.385-5.333 5.333-5.333c2.948 0 5.333 2.385 5.333 5.333S18.948 21.333 16 21.333zM26.464 7.459a1.923 1.923 0 0 1-1.923 1.921a1.919 1.919 0 1 1 0-3.838c1.057 0 1.923.86 1.923 1.917z"/></svg></a>
+    </div>
+  </div>
+    </div>
+    <p class="text-center ">(c) 2022 Vildskud</p>
+  </div>
+  
+      </footer>
+      
+      
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
