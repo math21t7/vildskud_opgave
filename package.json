@@ -25,6 +25,7 @@
     "alpinejs": "^3.10.4",
     "daisyui": "^2.31.0",
     "js": "^0.1.0",
+    "motion": "^10.14.2",
     "tw-elements": "^1.0.0-alpha12"
   }
 }
