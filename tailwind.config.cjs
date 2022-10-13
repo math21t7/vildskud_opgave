@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,vue,js,ts,jsx,tsx}"],
+  content: ["./src/**/*.{html,vue,js,ts,jsx,tsx}",
+  './pages/**/*.{html,js}',
+  './index.html',
+  './billetter.html',
+  './events.html',
+  ],
   theme: {
     colors: {
       red:'#830101',
