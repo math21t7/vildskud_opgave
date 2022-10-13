@@ -29,18 +29,16 @@
           <li class="underline"><a href="Kontakt.html">Kontakt</a></li>
         </ul>
         <!-----alm. menu---->
-        <div class="hidden lg:flex text-black right-10 text-2xl mt-8 gap-10 justify-end mr-2">
-        <ul id="topnav2" class="flex gap-7" >
+        <div class="hidden lg:flex text-black right-10 text-2xl mt-8 gap-10 justify-end mr-2 mb-8">
+        <ul x-data="{open: false}" id="topnav2" class="flex gap-7" >
           <li><a href="program.html">Program</a></li>
           <li><a href="events.html">Events</a></li>
-          <div class="dropdown dropdown-hover">
-            <li><label tabindex="0" class="btn m-1">Vær med</label>
-            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-              <li>Frivillige</li>
-              <li>Open Call</li>
+            <li @mouseover="open = true" @mouseout="open=false" class="cursor-pointer"><div class="flex">Vær med <svg width="32" height="32" viewBox="0 0 24 24"><path fill="#000000" d="m12 15l-5-5h10Z"/></svg></div>
+            <ul x-show="open" class="absolute border-2 border-greenhover bg-green underline">
+              <li class="hover:bg-greenhover"><a href="frivillige.html">Frivillige</a></li>
+              <li class="hover:bg-greenhover"><a href="opencall.html">Open Call</a></li>
             </ul>
           </li>
-        </div>
           <li><a href="om.html">Om</a></li>
           <li><a href="billetter.html">Billetter</a></li>
           <li><a href="Kontakt.html">Kontakt</a></li>
@@ -141,9 +139,9 @@
     <p class="text-center sm:text-left mx-4">Vildskud er Københavns festival for uafhængig scenekunst. Vær med, se med.</p>
     <a href="kontakt.html"><p class="text-center sm:text-left my-4 underline mx-4">Kontakt</p></a>
     <div class=" mx-4 flex place-content-center sm:grid sm:place-content-start gap-5 underline">
-      <a href=""><p>Privatlivspolitik</p></a>
+      <a href="privateliv.html"><p>Privatlivspolitik</p></a>
       <a href="sitemap.html"><p>Sitemap</p></a>
-      <a href=""><p>Cookie politik</p></a>
+      <a href="cookies.html"><p>Cookie politik</p></a>
     </div>
   </div>
     <div class="grid place-content-center">
