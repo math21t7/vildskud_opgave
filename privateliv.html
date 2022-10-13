@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <script type="module" crossorigin src="./assets/main.e7a1fef8.js"></script>
+    <link rel="stylesheet" href="./assets/main.e3ee6bc6.css">
+  </head>
+  <header>
+    <!------burger menu-->
+    <a href="index.html"><img src="./assets/logo_ny.376a4512.webp" alt="logo" class="absolute w-32 p-2"></a>
+    <div class="grid grid-cols-2">
+      <div id="menuknap" class="lg:hidden z-20 justify-self-end p-4 text-3xl absolute text-black">☰</div>
+    </div>
+    <nav>
+      <ul id="topnav1" class=" bg-green text-white w-screen h-screen text-3xl p-8 leading-10 absolute z-10 lg:hidden">
+        <li class="flex">Søg 
+          <form><label for="default-search" class="mb-2 text-sm font-medium sr-only "></label><input type="search" class="text-black rounded-sm ml-2 active:border-white  bg-green-200"></form>
+          <svg width="32" height="32" viewBox="0 0 18 18"><path fill="#FFFFFF" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg></li>
+        <li class="underline"><a href="index.html">Forside</a></li>
+        <li class="underline"><a href="program.html">Program</a></li>
+        <li class="underline"><a href="events.html">Events</a></li>
+        <li>Vær med</li>
+        <li class="indent-4 underline"><a href="frivillige.html">Frivillige</a></li>
+        <li class="indent-4 underline"><a href="opencall.html">Open call</a></li>
+        <li class="underline"><a href="om.html">Om</a></li>
+        <li class="underline"><a href="billetter.html">Billetter</a></li>
+        <li class="underline"><a href="Kontakt.html">Kontakt</a></li>
+      </ul>
+      <!-----alm. menu---->
+      <div class="hidden lg:flex text-black right-10 text-2xl mt-8 gap-10 justify-end mr-2 mb-8">
+      <ul x-data="{open: false}" id="topnav2" class="flex gap-7" >
+        <li><a href="program.html">Program</a></li>
+        <li><a href="events.html">Events</a></li>
+          <li @mouseover="open = true" @mouseout="open=false" class="cursor-pointer"><div class="flex">Vær med <svg width="32" height="32" viewBox="0 0 24 24"><path fill="#000000" d="m12 15l-5-5h10Z"/></svg></div>
+          <ul x-show="open" class="absolute border-2 border-greenhover bg-green underline p-2">
+            <li class="hover:bg-greenhover"><a href="frivillige.html">Frivillige</a></li>
+            <li class="hover:bg-greenhover"><a href="opencall.html">Open Call</a></li>
+          </ul>
+        </li>
+        <li><a href="om.html">Om</a></li>
+        <li><a href="billetter.html">Billetter</a></li>
+        <li><a href="Kontakt.html">Kontakt</a></li>
+        <li><svg  width="32" height="32" viewBox="0 0 24 24"><path fill="#000000" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg></li>
+      </ul>
+    </div>
+    </nav>
+  </header>
+  <body class="p-8">
+    <h2>Privatlivspolitik</h2>
+    <h3>Hvem er vi</h3>
+    <p>Vores webstedsadresse er:</p>
+    <a href="https://www.vildskud.dk">https://www.vildskud.dk.</a>
+    <h3>Vi indsamler følgende data</h3>
+    <h4>Kommentarer</h4>
+    <p>
+      Når besøgende skriver kommentarer på webstedet, indsamler vi de data, som
+      vises i kommentarformularen, og også den besøgendes IP-adresse og
+      browserens user agent string for at hjælpe med at opdage spam.
+      <br />
+      <br />
+      En anonymiseret streng som er oprettet ud fra din e-mailadresse (også
+      kaldet et hash), kan leveres til Gravatar tjenesten for at se om du bruger
+      denne. Gravatar tjenestens privatlivspolitik er tilgængelig her:
+      <a href="*">https://automattic.com/privacy/</a>. Efter godkendelse af din
+      kommentar, vil dit profilbillede være synligt for offentligheden sammen
+      med din kommentar.
+    </p>
+    <h4>Medier</h4>
+    <p>
+      Hvis du uploader billeder til webstedet, så bør du undlade at uploade
+      billeder med indlejrede lokalitetsdata (EXIF GPS) inkluderet. Besøgende på
+      webstedet kan downloade og udtrække alle lokalitetsdata fra billeder på
+      webstedet.
+    </p>
+    <h3>Cookies</h3>
+    <p>
+      Hvis du skriver en kommentar på vores websted, kan du vælge at gemme dit
+      navn, e-mailadresse og websted i cookies. Disse er til din
+      bekvemmeligehed, så du ikke skal udfylde dine oplysninger igen, når du
+      skriver endnu en kommentar. Disse cookies vil holde i et år. <br /><br />
+
+      Hvis du har en konto, og du logger ind på dette websted, vil vi opsætte en
+      midlertidig cookie for at afgøre om din browser accpeterer cookies. Denne
+      cookie indeholder ikke nogen personlige data og fjernes, når du lukker
+      browseren.
+      <br /><br />
+
+      Når du logger ind, vil vi opsætte en række cookies og gemme din
+      logininformation og dine valg af skærmvisning. Login cookies holder i to
+      dage, og skærmvalg cookies holder i et år. Hvis du vælger "Husk mig", vil
+      dit login holde i to uger. Hvis du logger ud af din konto, vil login
+      cookierne forsvinde.
+      <br />
+      <br />
+      Hvis du redigerer eller udgiver en artikel, vil en yderligere cookie blive
+      gemt i din browser. Denne cookie indeholder ikke nogle personlige data og
+      opgiver simpelthen indlægsID på den artikel, du lige har redigeret. Den
+      udløber efter 1 dag.
+    </p>
+    <h3>Indlejret indhold fra andre websteder</h3>
+    <p>
+      Artikler på dette websted kan indeholde indlejret indhold (f.eks. videoer,
+      billeder, artikler osv.). Indlejret indhold fra andre websteder opfører
+      sig på nøjagtig samme måde, som hvis den besøgende har besøgt det andet
+      websted.
+      <br />
+      <br />
+      Disse websteder indsamler måske data om dig, bruger cookies, indlejrer
+      ekstra tredjeparts sporing, og overvåger din interaktion med dette
+      indlejrede indhold, heriblandt at spore din interaktion med indlejret
+      indhold, hvis du har en konto og en logget ind på det websted.
+    </p>
+    <h3>Hvor længe vi gemmer din data</h3>
+    <p>
+      Hvis du skriver en kommentar, så bliver kommentarer og dens metadata
+      bevaret på ubestemt tid. Dette er så vi kan genkende og godkende enhver
+      opfølgende kommentar automatisk i stedet for at have dem i en
+      moderationskø. <br />
+      <br />
+      For brugere som opretter sig på vores websted (om nogen), gemmer vi også
+      den personlige information de giver til deres brugerprofil. Alle brugere
+      kan se, redigere, eller slette deres personlige information til enhver tid
+      (med den undtagelse at de ikke kan ændre deres brugernavn). Webstedets
+      administratorer kan også se og redigere den information.
+    </p>
+    <h3>Din rettigheder over din data</h3>
+    <p>
+      Hvis du har en konto på dette websted, eller har skrevet kommentarer, kan
+      du bede om en eksporteret fil med de personlige data vi har liggende om
+      dig, heriblandt alt data, du har givet os. Du kan også bede om, at vi
+      sletter alle personlige data, vi har om dig. Dette indbefatter ikke nogen
+      form for data, som vi er forpligtede til at gemme af administrative,
+      lovmæssige eller sikkerhedsmæssige grunde.
+    </p>
+    <h3>Hvor vi sender din data</h3>
+    <p>
+      Besøgendes kommentarer kan muligvis blive kontrolleret af en automatisk
+      spam-genkendelse tjeneste.
+    </p>
+    
+    <footer class="mt-24 ">
+      <div class="bg-green sm:pt-8">
+        <div class="sm:grid sm:grid-cols-3">
+          <div>
+    <p class="text-center sm:text-left text-2xl mx-4">Vildskud</p>
+    <p class="text-center sm:text-left mx-4">Vildskud er Københavns festival for uafhængig scenekunst. Vær med, se med.</p>
+    <a href="kontakt.html"><p class="text-center sm:text-left my-4 underline mx-4">Kontakt</p></a>
+    <div class=" mx-4 flex place-content-center sm:grid sm:place-content-start gap-5 underline">
+      <a href="privateliv.html"><p>Privatlivspolitik</p></a>
+      <a href="sitemap.html"><p>Sitemap</p></a>
+      <a href="cookies.html"><p>Cookie politik</p></a>
+    </div>
+  </div>
+    <div class="grid place-content-center">
+    <img src="./assets/logo_ny.376a4512.webp" alt="logo" class="w-32 sm:w-48 mt-4">
+  </div>
+  <div>
+    <p class="text-center sm:text-right text-2xl mx-4">Vær Social</p>
+    <p class="text-center sm:text-right mx-4">Find os på de sociale medier</p>
+    <div class="flex place-content-center  sm:place-content-end gap-5 sm:mt-8 mb-2 my-2 mx-4">
+     <a href="https://www.facebook.com/vildskudfestival/"><svg width="32" height="32" viewBox="0 0 20 20"><path fill="#FFFFFF" d="M17 1H3c-1.1 0-2 .9-2 2v14c0 1.101.9 2 2 2h7v-7H8V9.525h2v-2.05c0-2.164 1.212-3.684 3.766-3.684l1.803.002v2.605h-1.197c-.994 0-1.372.746-1.372 1.438v1.69h2.568L15 12h-2v7h4c1.1 0 2-.899 2-2V3c0-1.1-.9-2-2-2z"/></svg></a>
+    <a href="https://www.instagram.com/vildskudfestival/"><svg width="32" height="32" viewBox="0 0 32 32"><path fill="#FFFFFF" d="M16 0c-4.349 0-4.891.021-6.593.093c-1.709.084-2.865.349-3.885.745a7.847 7.847 0 0 0-2.833 1.849A7.757 7.757 0 0 0 .84 5.52C.444 6.54.179 7.696.095 9.405c-.077 1.703-.093 2.244-.093 6.593s.021 4.891.093 6.593c.084 1.704.349 2.865.745 3.885a7.847 7.847 0 0 0 1.849 2.833a7.757 7.757 0 0 0 2.833 1.849c1.02.391 2.181.661 3.885.745c1.703.077 2.244.093 6.593.093s4.891-.021 6.593-.093c1.704-.084 2.865-.355 3.885-.745a7.847 7.847 0 0 0 2.833-1.849a7.716 7.716 0 0 0 1.849-2.833c.391-1.02.661-2.181.745-3.885c.077-1.703.093-2.244.093-6.593s-.021-4.891-.093-6.593c-.084-1.704-.355-2.871-.745-3.885a7.847 7.847 0 0 0-1.849-2.833A7.716 7.716 0 0 0 26.478.838c-1.02-.396-2.181-.661-3.885-.745C20.89.016 20.349 0 16 0zm0 2.88c4.271 0 4.781.021 6.469.093c1.557.073 2.405.333 2.968.553a4.989 4.989 0 0 1 1.844 1.197a4.931 4.931 0 0 1 1.192 1.839c.22.563.48 1.411.553 2.968c.072 1.688.093 2.199.093 6.469s-.021 4.781-.099 6.469c-.084 1.557-.344 2.405-.563 2.968c-.303.751-.641 1.276-1.199 1.844a5.048 5.048 0 0 1-1.844 1.192c-.556.22-1.416.48-2.979.553c-1.697.072-2.197.093-6.479.093s-4.781-.021-6.48-.099c-1.557-.084-2.416-.344-2.979-.563c-.76-.303-1.281-.641-1.839-1.199c-.563-.563-.921-1.099-1.197-1.844c-.224-.556-.48-1.416-.563-2.979c-.057-1.677-.084-2.197-.084-6.459c0-4.26.027-4.781.084-6.479c.083-1.563.339-2.421.563-2.979c.276-.761.635-1.281 1.197-1.844c.557-.557 1.079-.917 1.839-1.199c.563-.219 1.401-.479 2.964-.557c1.697-.061 2.197-.083 6.473-.083zm0 4.907A8.21 8.21 0 0 0 7.787 16A8.21 8.21 0 0 0 16 24.213A8.21 8.21 0 0 0 24.213 16A8.21 8.21 0 0 0 16 7.787zm0 13.546c-2.948 0-5.333-2.385-5.333-5.333s2.385-5.333 5.333-5.333c2.948 0 5.333 2.385 5.333 5.333S18.948 21.333 16 21.333zM26.464 7.459a1.923 1.923 0 0 1-1.923 1.921a1.919 1.919 0 1 1 0-3.838c1.057 0 1.923.86 1.923 1.917z"/></svg></a>
+  </div>
+</div>
+  </div>
+  <p class="text-center ">(c) 2022 Vildskud</p>
+</div>
+
+    </footer>
+    
+  </body>
+</html>
