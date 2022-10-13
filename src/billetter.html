@@ -9,14 +9,12 @@
   <body class="">
     <header>
       <!------burger menu-->
+      <a href="index.html"><img src="logo_ny.webp" alt="logo" class="absolute w-32 p-2"></a>
       <div class="grid grid-cols-2">
-        <div>
-          <a href="index.html"><img src="logo_header.webp" alt="logo" class="w-32 p-2 sm:hidden relative"></a>
-        </div>
-        <div id="menuknap" class="sm:hidden z-20 justify-self-end p-4 text-3xl">☰</div>
+        <div id="menuknap" class="lg:hidden z-20 justify-self-end p-4 text-3xl absolute text-white">☰</div>
       </div>
       <nav>
-        <ul id="topnav1" class=" bg-green text-white w-screen h-screen text-3xl p-8 leading-10 -mt-[127px] absolute z-10 sm:hidden">
+        <ul id="topnav1" class=" bg-green text-white w-screen h-screen text-3xl p-8 leading-10 absolute z-10 lg:hidden">
           <li class="flex">Søg 
             <form><label for="default-search" class="mb-2 text-sm font-medium sr-only "></label><input type="search" class="text-black rounded-sm ml-2 active:border-white  bg-green-200"></form>
             <svg width="32" height="32" viewBox="0 0 18 18"><path fill="#FFFFFF" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg></li>
@@ -31,11 +29,7 @@
           <li class="underline"><a href="Kontakt.html">Kontakt</a></li>
         </ul>
         <!-----alm. menu---->
-        <ul id="topnav2" class="hidden sm:grid sm:grid-cols-2" >
-          <div>
-            <li> <a href="index.html"><img src="logo_header.webp" alt="logo" class="w-44 p-2"></a></li>
-          </div>
-          <div class="flex justify-self-end p-8 text-xl sm:gap-3 md:gap-5" >
+        <ul id="topnav2" class="hidden absolute lg:flex text-white right-10 text-2xl mt-8 gap-10" >
           <li><a href="program.html">Program</a></li>
           <li><a href="events.html">Events</a></li>
           <li>Vær med
@@ -47,8 +41,7 @@
           <li><a href="om.html">Om</a></li>
           <li><a href="billetter.html">Billetter</a></li>
           <li><a href="Kontakt.html">Kontakt</a></li>
-          <li><svg  width="32" height="32" viewBox="0 0 24 24"><path fill="#000000" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg></li>
-        </div>
+          <li><svg  width="32" height="32" viewBox="0 0 24 24"><path fill="#FFFFFF" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg></li>
         </ul>
       </nav>
     </header>
@@ -79,7 +72,7 @@
     </div>
   </div>
     <div class="grid place-content-center">
-    <img src="logo_header.webp" alt="logo" class="w-32 sm:w-48 mt-4">
+    <img src="logo_ny.webp" alt="logo" class="w-32 sm:w-48 mt-4">
   </div>
   <div>
     <p class="text-center sm:text-right text-2xl mx-4">Vær Social</p>
