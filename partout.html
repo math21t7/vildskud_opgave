@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Partout-billet</title>
     <script type="module" crossorigin src="./assets/main.e7a1fef8.js"></script>
-    <link rel="stylesheet" href="./assets/main.522a8e2a.css">
+    <link rel="stylesheet" href="./assets/main.714f50b2.css">
   </head>
   <body class="">
     <header>
@@ -52,14 +52,14 @@
   
     <h2 class="text-center text-5xl">Partout-billet</h2>
     <main x-data="{ step: 'step1', antal: '1', quantity: '6', dato_partout_yoku : 'valg', pladser_partout_yoku : '0', dato_partout_levende : 'valg', pladser_partout_levende: '0', dato_partout_vild: 'valg', pladser_partout_vild:'0', dato_partout_birth:'valg', pladser_partout_birth:'0', dato_partout_mand: 'valg', pladser_partout_mand:'0', dato_partout_frygten:'valg', pladser_partout_frygten:'0'}">
-        <header class="border-b border-green-200 pt-4 pb-8">
-          <ul class="flex place-content-center">
+        <header class="border-b border-green-200 pt-4 pb-8 m-2">
+          <ul class="flex place-content-center gap-2">
             <li class="inline pr-2" :class="{'border-green-200 border-b': step === 'step1' }">1: Antal billetter</li>
             <li class="inline pr-2" :class="{'border-green-200 border-b': step === 'step2' }" >2: Pladsreservation</li>
             <li class="inline pr-2" :class="{'border-green-200 border-b': step === 'step3' }">3: Bekræft af køb</li>
           </ul>
         </header>
-        <section class="border-b border-green-200 py-8 grid place-items-center">
+        <section class="border-b border-green-200 py-8 grid place-items-center m-2">
           <!-- step 1 -->
         <div id="step1" x-show="step === 'step1'">
           <p class="mb-4">Vælg antallet af billetter du ønsker at købe:</p>
